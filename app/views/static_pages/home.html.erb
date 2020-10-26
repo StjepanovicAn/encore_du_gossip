@@ -1,1 +1,8 @@
 <h1>BIENVENUE SUR THE GOSSIP PROJECT</h1>
+
+<% all_gossips = Gossip.all %>
+
+<% all_gossips.each do |id| %>
+<p>Voici "<%= id.title %>"" de "<%= id.user.first_name %> "</p>
+<%end%>
+
