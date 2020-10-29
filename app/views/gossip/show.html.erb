@@ -1,6 +1,11 @@
 <h1> POTIN N°<%=@gossip.id%>  </h1>
 <div class="card">
 	<h3 class="card-title"><%=@gossip.title%></h3>
-	<p class="card-text">from <%=@gossip.user.first_name%> </p>
+	<p class="card-text">from <%=@gossip.user.first_name%>, <%=@gossip.user.city.name%> </p>
 	<p class="card-text"><%=@gossip.content%></p>
 </div>
+
+<p>learn more about the author</p>
+<p> <%=link_to user_path(@gossip.user.id)do %> author's profile <%end%> </p>
+
+<p> <%=link_to edit_gossip_path(@gossip.id)do %> editer <%end%> </p>

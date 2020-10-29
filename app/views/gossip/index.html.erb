@@ -1,14 +1,9 @@
-<h1>BIENVENUE SUR THE GOSSIP PROJECT</h1>
+<div class="alert alert-success" role="alert">
+  Ton potin a été ajouté! Congrats!
+</div>
 
-
-
-<p> <%=link_to new_gossip_path do %> créer un nouveau gossip!<%end%> </p>
-<% all_gossips = Gossip.all %>
-
-<% all_gossips.each do |gossip| %>
-
-
-
+<% @gossips = Gossip.all %>
+<% @gossips.each do |gossip| %>
 
 <div class="row">
 	<div class="col-sm-2">
@@ -24,4 +19,3 @@
 	</div>
 </div>
 <%end%>
-

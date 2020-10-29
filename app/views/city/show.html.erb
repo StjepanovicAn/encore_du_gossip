@@ -1,0 +1,12 @@
+<h1><%=@city.name%></h1>
+
+
+	<% cities_user = @city.users %>
+	<% cities_user.each do |u| %>
+	<% u.gossips.each do |g| %>
+	<% g.title %>
+	<%= link_to gossip_path(@gossip.ids) do %><%=g.title  %> <%end%>
+	<%end%>
+	<%end%>
+
+

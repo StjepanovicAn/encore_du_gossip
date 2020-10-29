@@ -1,7 +1,4 @@
-
-<!-- ici on a le formulaire qui prend les entrées de l'utilisateur et les donnes en param au nouveau gossip
- -->
-<%= form_tag url_for(action: 'create'), method: "post" do %>
+<%= form_tag url_for(action: 'update'), method: "post" do %>
 	<%= label_tag 'Titre' %>
 	<%= text_field_tag 'title', @gossip.title %>
 	<br/><br/>
@@ -10,7 +7,7 @@
 	<%= text_field_tag 'content', @gossip.content %>
 	<br/><br/>
 
-	<%= submit_tag "Enregistrer le potin" %>
+	<%= submit_tag "Enregistrer les modifications" %>
 
 	<%if @gossip.errors.any? %>
 		<div class="alert alert-danger" role="alert">

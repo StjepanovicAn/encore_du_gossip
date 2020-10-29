@@ -1,7 +1,7 @@
 class GossipController < ApplicationController
 
 	def index
-		@gossips = Gossip.all
+		@gossips = Gossip.all	
 
 	end
 
@@ -10,12 +10,14 @@ class GossipController < ApplicationController
 	end
 
 	def new
-		@gossip = Gossip.new(user: User.find(1))
+		@gossip = Gossip.new
 
 	end
 
 	def create
-		@gossip = Gossip.new(params[:gossip]) #c'est censé trouver les params donné dans le formulaire mais il arrive pas à les sauvegarder
+		@gossip = Gossip.new('title' => params[:title],
+								'content' => params[:content],
+								'user' => User.find(1) )
 		if @gossip.save 
 			puts "m"*50
 			puts "bravo!"
@@ -33,14 +35,24 @@ class GossipController < ApplicationController
 	end
 
 	def edit
-
+		@gossip = Gossip.find(params[:id])
 	end
 
 	def update
+		@gossip = Gossip.find(params[:id])
+
+		if @gossip.update('title' => params[:title],
+								'content' => params[:content],
+								'user' => params[:user.id])
+			redirect_to @gossip
+		else
+			render :edit
+		end
 
 	end
 
 	def destroy
+		@gossip = Gossip.find(params[:id])
 
 	end
 end
